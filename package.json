@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server/index.js"
+    "dev": "nodemon server/index.js",
+    "test": "jest"
   },
   "license": "MIT",
   "dependencies": {
@@ -15,5 +16,10 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0"
   }
 }

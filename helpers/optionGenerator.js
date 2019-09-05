@@ -1,6 +1,4 @@
-const cases = ['camel case', 'snake case', 'kebab case'];
-
-export const stringToCamelCase = string => {
+const stringToCamelCase = string => {
   const caseObj = {};
   caseObj.case = string
     .replace(/(?:^\w|[A-Z]|\b\w)/g, function(word, index) {
@@ -17,7 +15,7 @@ export const stringToCamelCase = string => {
   return caseObj;
 };
 
-export const stringToKebabCase = string => {
+const stringToKebabCase = string => {
   const caseObj = {};
 
   caseObj.case = string.replace(/\s+/g, '-').toLowerCase();
@@ -31,7 +29,80 @@ export const stringToKebabCase = string => {
   return caseObj;
 };
 
-export const stringToSnakeCase = string => {
+const stringToLeetCase = string => {
+  const leet = {
+    a: '@',
+    b: '8',
+    c: '(',
+    d: '|)',
+    e: '3',
+    f: '|=',
+    g: '6',
+    h: '#',
+    i: '!',
+    j: ']',
+    k: '|{',
+    l: '1',
+    m: 'em',
+    n: '[]',
+    o: '0',
+    p: '|*',
+    q: '0,',
+    r: '|2',
+    s: '$',
+    t: '7',
+    u: '(_)',
+    v: '/',
+    w: 'vv',
+    x: '%',
+    y: '`/',
+    z: '2'
+  };
+
+  const caseObj = {};
+
+  let leetmsg = '';
+
+  // make it 1337
+  string = string.toLowerCase();
+  for (let i = 0; i < string.length; i++) {
+    if (leet[string.charAt(i)]) {
+      leetmsg += leet[string.charAt(i)];
+    } else {
+      leetmsg += string.charAt(i);
+    }
+  }
+
+  caseObj.case = leetmsg;
+
+  if (string === '1337 case') {
+    caseObj.isCorrect = true;
+  } else {
+    caseObj.isCorrect = false;
+  }
+
+  return caseObj;
+};
+
+const stringToPascalCase = string => {
+  const caseObj = {};
+
+  caseObj.case = string
+    .replace(/\w+/g, function(w) {
+      return (w[0].toUpperCase() + w.slice(1).toLowerCase()).trim();
+    })
+    .replace(/\s+/g, '');
+
+  if (string === 'pascal case') {
+    caseObj.isCorrect = true;
+  } else {
+    caseObj.isCorrect = false;
+  }
+
+  return caseObj;
+};
+
+const stringToSnakeCase = string => {
   const caseObj = {};
 
   caseObj.case = string
@@ -46,4 +117,12 @@ export const stringToSnakeCase = string => {
   }
 
   return caseObj;
+};
+
+module.exports = {
+  stringToCamelCase,
+  stringToKebabCase,
+  stringToLeetCase,
+  stringToPascalCase,
+  stringToSnakeCase
 };

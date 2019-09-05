@@ -4,6 +4,8 @@ import PageLayout from '../components/layouts/PageLayout';
 import {
   stringToCamelCase,
   stringToKebabCase,
+  stringToLeetCase,
+  stringToPascalCase,
   stringToSnakeCase
 } from '../helpers/optionGenerator';
 
@@ -28,7 +30,7 @@ class Index extends React.Component {
       hasStarted: false,
       score: 0,
       startTimer: false,
-      timeLeft: 5
+      timeLeft: 3
     };
   }
 
@@ -42,16 +44,27 @@ class Index extends React.Component {
   }
 
   createQuestion() {
+    const { score } = this.state;
     clearInterval(this.timer);
 
     const questions = [stringToCamelCase, stringToKebabCase, stringToSnakeCase];
+
     const argument = ['camel case', 'kebab case', 'snake case'];
-    const questionNum = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
-    const argumentNum = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+    if (score >= 5 && !argument.includes('pascal case')) {
+      argument.push('pascal case');
+      questions.push(stringToPascalCase);
+    }
+    if (score >= 10 && !argument.includes('1337 case')) {
+      argument.push('1337 case');
+      questions.push(stringToLeetCase);
+    }
+
+    const questionNum = Math.floor(Math.random() * questions.length);
+    const argumentNum = Math.floor(Math.random() * argument.length);
 
     this.setState({
       question: questions[questionNum](argument[argumentNum]),
-      timeLeft: 5
+      timeLeft: 3
     });
 
     this.startTimer();
@@ -82,7 +95,7 @@ class Index extends React.Component {
         hasStarted: false,
         score: 0,
         startTimer: false,
-        timeLeft: 5
+        timeLeft: 3
       });
     }
   }
@@ -105,18 +118,22 @@ class Index extends React.Component {
 
   render() {
     const { hasStarted, question, score, timeLeft } = this.state;
-    console.log({ timeLeft });
+
     return (
       <PageLayout meta={homeMeta}>
         <h1>Just-in_case</h1>
         <p>When the case matches the case, click the case. OK?</p>
-        <input type="submit" onClick={this.startGame} />
         {hasStarted ? (
-          <h2 onClick={() => this.validateAnswer(question.isCorrect)}>
-            {question.case}
-          </h2>
-        ) : null}
-        <h2>{score}</h2>
+          <>
+            <h2 onClick={() => this.validateAnswer(question.isCorrect)}>
+              {question.case}
+            </h2>
+            <p>{timeLeft} seconds left</p>
+            <h2>{score}</h2>
+          </>
+        ) : (
+          <input type="submit" onClick={this.startGame} />
+        )}
       </PageLayout>
     );
   }
