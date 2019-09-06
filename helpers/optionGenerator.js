@@ -15,6 +15,20 @@ const stringToCamelCase = string => {
   return caseObj;
 };
 
+const stringToFlatcase = string => {
+  const caseObj = {};
+
+  caseObj.case = string.replace(/[^0-9a-zA-Z]/g, '').toLowerCase();
+
+  if (string === 'flat case') {
+    caseObj.isCorrect = true;
+  } else {
+    caseObj.isCorrect = false;
+  }
+
+  return caseObj;
+};
+
 const stringToKebabCase = string => {
   const caseObj = {};
 
@@ -121,6 +135,7 @@ const stringToSnakeCase = string => {
 
 module.exports = {
   stringToCamelCase,
+  stringToFlatcase,
   stringToKebabCase,
   stringToLeetCase,
   stringToPascalCase,

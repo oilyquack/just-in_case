@@ -3,6 +3,7 @@ import React from 'react';
 import PageLayout from '../components/layouts/PageLayout';
 import {
   stringToCamelCase,
+  stringToFlatcase,
   stringToKebabCase,
   stringToLeetCase,
   stringToPascalCase,
@@ -54,7 +55,11 @@ class Index extends React.Component {
       argument.push('pascal case');
       questions.push(stringToPascalCase);
     }
-    if (score >= 10 && !argument.includes('1337 case')) {
+    if (score >= 10 && !argument.includes('flat case')) {
+      argument.push('flat case');
+      questions.push(stringToFlatcase);
+    }
+    if (score >= 15 && !argument.includes('1337 case')) {
       argument.push('1337 case');
       questions.push(stringToLeetCase);
     }
