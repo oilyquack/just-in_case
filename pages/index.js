@@ -1,6 +1,7 @@
 import React from 'react';
 
 import GameOver from '../components/comps/GameOver';
+import PlayBoard from '../components/comps/PlayBoard';
 import PageLayout from '../components/layouts/PageLayout';
 import {
   stringToCamelCase,
@@ -188,13 +189,12 @@ class Index extends React.Component {
         <h1>just-in_case</h1>
         <p>When the case matches the case, click the case. OK?</p>
         {hasStarted ? (
-          <>
-            <h2 onClick={() => this.validateAnswer(question.isCorrect)}>
-              {question.case}
-            </h2>
-            <p>{timeLeft} seconds left</p>
-            <h2>{score}</h2>
-          </>
+          <PlayBoard
+            question={question}
+            score={score}
+            timer={timeLeft}
+            validateAnswer={this.validateAnswer.bind(this)}
+          />
         ) : (
           <input type="submit" onClick={this.startGame} />
         )}

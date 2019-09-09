@@ -11,5 +11,5 @@ const GameOver = ({ score }) => (
 export default GameOver;
 
 GameOver.propTypes = {
-  Score: PropTypes.number.isRequired
+  score: PropTypes.number.isRequired
 };
