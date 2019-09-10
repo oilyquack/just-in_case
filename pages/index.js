@@ -2,6 +2,8 @@ import React from 'react';
 
 import GameOver from '../components/comps/GameOver';
 import PlayBoard from '../components/comps/PlayBoard';
+import ScoreBoard from '../components/comps/ScoreBoard';
+import Title from '../components/comps/Title';
 import PageLayout from '../components/layouts/PageLayout';
 import {
   stringToCamelCase,
@@ -40,6 +42,17 @@ class Index extends React.Component {
       timeLeft: 3
     };
   }
+
+  componentDidMount() {
+    const highScores = JSON.parse(localStorage.getItem('highScore'));
+
+    if (highScores) {
+      this.setState({
+        scores: highScores
+      });
+    }
+  }
+
   /**
    * Resets the scoreboard and starts the game.
    * Triggers the creation of questions.
@@ -172,22 +185,41 @@ class Index extends React.Component {
       });
       this.createQuestion();
     } else {
-      // Save score to local storage
+      // Store scores locally for scoreboard
+      const oldHighScores = JSON.parse(localStorage.getItem('highScore'));
+      let newHighScores;
+      if (oldHighScores) {
+        newHighScores = [...oldHighScores, score]
+          .sort((a, b) => b - a)
+          .slice(0, 5);
+      } else {
+        newHighScores = [score];
+      }
+
+      localStorage.setItem('highScore', JSON.stringify(newHighScores));
 
       this.setState({
         hasStarted: false,
-        isGameOver: true
+        isGameOver: true,
+        scores: newHighScores
       });
     }
   }
 
   render() {
-    const { hasStarted, isGameOver, question, score, timeLeft } = this.state;
+    const {
+      hasStarted,
+      isGameOver,
+      question,
+      score,
+      scores,
+      timeLeft
+    } = this.state;
 
     return (
       <PageLayout meta={homeMeta}>
-        <h1>just-in_case</h1>
-        <p>When the case matches the case, click the case. OK?</p>
+        <Title />
+        {!hasStarted && scores ? <ScoreBoard scores={scores} /> : null}
         {hasStarted ? (
           <PlayBoard
             question={question}
@@ -196,7 +228,7 @@ class Index extends React.Component {
             validateAnswer={this.validateAnswer.bind(this)}
           />
         ) : (
-          <input type="submit" onClick={this.startGame} />
+          <input type="submit" onClick={this.startGame} value="Let's Play" />
         )}
         {isGameOver && <GameOver score={score} />}
       </PageLayout>
