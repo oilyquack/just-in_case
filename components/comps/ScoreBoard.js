@@ -2,9 +2,15 @@ import { css } from 'emotion';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import theme from '../../theme/index';
+
 const scoreBoardStyle = css`
   font-family: 'Courier New', Courier, monospace;
   margin-bottom: 20px;
+`;
+
+const titleStyle = css`
+  ${theme.typography.heading};
 `;
 
 const scoresStyle = css`
@@ -30,7 +36,7 @@ const scoreStyle = css`
 
 const ScoreBoard = ({ scores }) => (
   <div className={scoreBoardStyle}>
-    <h2>HIGH SCORE</h2>
+    <h2 className={titleStyle}>HIGH SCORE{scores.length > 1 ? 'S' : null}</h2>
     <div className={scoresStyle}>
       {scores.map(score => (
         <span className={scoreStyle}>{score}</span>

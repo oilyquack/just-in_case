@@ -1,9 +1,10 @@
 import { css } from 'emotion';
 import React from 'react';
 
+import theme from '../../theme/index';
+
 const titleStyle = css`
-  font-family: 'Lucida Console', Monaco, monospace;
-  text-align: center;
+  ${theme.typography.heading};
 `;
 
 const Title = () => (
