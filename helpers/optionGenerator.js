@@ -20,7 +20,7 @@ const stringToCobolCase = string => {
 
   caseObj.case = string.replace(/\s+/g, '-').toUpperCase();
 
-  if (string === 'kebab case') {
+  if (string === 'cobol case') {
     caseObj.isCorrect = true;
   } else {
     caseObj.isCorrect = false;
@@ -120,7 +120,7 @@ const stringToMacroCase = string => {
     .map(x => x.toUpperCase())
     .join('_');
 
-  if (string === 'snake case') {
+  if (string === 'macro case') {
     caseObj.isCorrect = true;
   } else {
     caseObj.isCorrect = false;
@@ -169,7 +169,7 @@ const stringToUppercase = string => {
 
   caseObj.case = string.replace(/[^0-9a-zA-Z]/g, '').toUpperCase();
 
-  if (string === 'flat case') {
+  if (string === 'upper case') {
     caseObj.isCorrect = true;
   } else {
     caseObj.isCorrect = false;
