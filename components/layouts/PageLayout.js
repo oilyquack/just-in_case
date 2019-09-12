@@ -3,10 +3,13 @@ import Head from 'next/head';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import theme from '../../theme';
+
 const pageLayoutStyle = css`
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 100vh;
 `;
 
 const PageLayout = ({ children, meta }) => (

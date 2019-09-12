@@ -14,32 +14,31 @@ const titleStyle = css`
 `;
 
 const scoresStyle = css`
+  align-items: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
 `;
 
 const scoreStyle = css`
-  align-items: center;
-  border-top: 2px solid black;
-  border-right: 1px solid black;
-  border-bottom: 2px solid black;
-  border-left: 2px solid black;
   display: flex;
-  height: 30px;
-  justify-content: center;
-  width: 30px;
-
-  &:last-child {
-    border-right: 2px solid black;
-  }
+  justify-content: space-between;
+  margin-bottom: 10px;
+  text-align: center;
+  width: 80px;
 `;
+
+const ranks = ['1st', '2nd', '3rd', '4th', '5th'];
 
 const ScoreBoard = ({ scores }) => (
   <div className={scoreBoardStyle}>
     <h2 className={titleStyle}>HIGH SCORE{scores.length > 1 ? 'S' : null}</h2>
     <div className={scoresStyle}>
-      {scores.map(score => (
-        <span className={scoreStyle}>{score}</span>
+      {scores.map((score, index) => (
+        <div className={scoreStyle}>
+          <span>{ranks[index]}</span>
+          <span>{score}</span>
+        </div>
       ))}
     </div>
   </div>
