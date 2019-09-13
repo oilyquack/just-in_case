@@ -2,15 +2,12 @@ import { css } from 'emotion';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import Heading from './core/Heading';
 import theme from '../../theme/index';
 
 const scoreBoardStyle = css`
   font-family: ${theme.fonts.secondary};
   margin-bottom: 20px;
-`;
-
-const titleStyle = css`
-  ${theme.typography.heading};
 `;
 
 const scoresStyle = css`
@@ -32,7 +29,7 @@ const ranks = ['1st', '2nd', '3rd', '4th', '5th'];
 
 const ScoreBoard = ({ scores }) => (
   <div className={scoreBoardStyle}>
-    <h2 className={titleStyle}>HIGH SCORE{scores.length > 1 ? 'S' : null}</h2>
+    <Heading level="2" text={`HIGH SCORE${scores.length > 1 ? 'S' : null}`} />
     <div className={scoresStyle}>
       {scores.map((score, index) => (
         <div className={scoreStyle} key={ranks[index]}>

@@ -9,6 +9,7 @@ const gameOverStyle = css`
   display: flex;
   flex-direction: column;
   font-family: ${theme.fonts.primary};
+  margin: 20px 0 20px 0;
 `;
 
 const GameOver = ({ score }) => (

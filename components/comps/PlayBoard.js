@@ -45,14 +45,20 @@ const questionStyle = css`
   cursor: default;
   font-family: ${theme.fonts.secondary};
   font-size: ${theme.spacing.xxl}px;
+  margin-bottom: 8px;
+  padding: 4px;
 `;
 
 const timerStyle = css`
   font-family: ${theme.fonts.primary};
+  margin-bottom: 8px;
+  padding: 4px;
 `;
 
 const scoreStyle = css`
   font-family: ${theme.fonts.primary};
+  margin-bottom: 8px;
+  padding: 4px;
 `;
 
 const PlayBoard = ({ question, score, timer, validateAnswer }) => (
@@ -64,7 +70,7 @@ const PlayBoard = ({ question, score, timer, validateAnswer }) => (
       {question.case}
     </h2>
     <p className={timerStyle}>{timer} seconds left</p>
-    <h2 className={scoreStyle}>{score}</h2>
+    <h2 className={scoreStyle}>Score: {score}</h2>
   </>
 );
 

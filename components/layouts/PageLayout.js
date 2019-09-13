@@ -14,16 +14,23 @@ const pageLayoutStyle = css`
 `;
 
 const PageLayout = ({ children, meta }) => (
-  <div>
+  <>
     <Head>
       <title>{meta.title}</title>
       <meta name="description" content={meta.description} />
     </Head>
+    <style jsx global>{`
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+    `}</style>
     <div className={pageLayoutStyle}>
       {children}
       <Footer />
     </div>
-  </div>
+  </>
 );
 
 export default PageLayout;
