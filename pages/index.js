@@ -98,11 +98,11 @@ class Index extends React.Component {
       questions.push(stringToUppercase);
     }
     if (score >= 20 && !argument.includes('cobol case')) {
-      argument.push('upper case');
+      argument.push('cobol case');
       questions.push(stringToCobolCase);
     }
     if (score >= 25 && !argument.includes('macro case')) {
-      argument.push('1337 case');
+      argument.push('macro case');
       questions.push(stringToMacroCase);
     }
     if (score >= 30 && !argument.includes('1337 case')) {
