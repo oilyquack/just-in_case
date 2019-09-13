@@ -3,10 +3,11 @@ export default {
   pureWhite: '#FFFFFF',
 
   black: '#101012',
-  neutral: '#A1AFCA',
+  neutral: '#A9A9BC',
 
   primary: '#FD6960',
-  secondary: '#9CD7A1',
+  secondary: '#8DD393',
+  secondaryActive: '#73BC79',
 
   // Social login
   // Facebook

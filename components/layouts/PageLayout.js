@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import theme from '../../theme';
+import Footer from '../comps/Footer';
 
 const pageLayoutStyle = css`
   align-items: center;
@@ -18,7 +19,10 @@ const PageLayout = ({ children, meta }) => (
       <title>{meta.title}</title>
       <meta name="description" content={meta.description} />
     </Head>
-    <div className={pageLayoutStyle}>{children}</div>
+    <div className={pageLayoutStyle}>
+      {children}
+      <Footer />
+    </div>
   </div>
 );
 
