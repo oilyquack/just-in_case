@@ -5,7 +5,7 @@ import React from 'react';
 import theme from '../../theme/index';
 
 const scoreBoardStyle = css`
-  font-family: 'Courier New', Courier, monospace;
+  font-family: ${theme.fonts.secondary};
   margin-bottom: 20px;
 `;
 
@@ -35,7 +35,7 @@ const ScoreBoard = ({ scores }) => (
     <h2 className={titleStyle}>HIGH SCORE{scores.length > 1 ? 'S' : null}</h2>
     <div className={scoresStyle}>
       {scores.map((score, index) => (
-        <div className={scoreStyle}>
+        <div className={scoreStyle} key={ranks[index]}>
           <span>{ranks[index]}</span>
           <span>{score}</span>
         </div>
