@@ -1,12 +1,12 @@
 import { css } from 'emotion';
 
 import colors from './colors';
+import fonts from './fonts';
 
 export default {
   heading: css`
     color: ${colors.primary};
-    font-family: 'Lucida Console', Monaco, monospace;
+    font-family: ${fonts.primary};
     text-align: center;
-  `,
-  content: css``
+  `
 };
