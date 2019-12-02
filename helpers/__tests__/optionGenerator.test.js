@@ -1,7 +1,13 @@
 import {
   stringToCamelCase,
+  stringToCobolCase,
+  stringToFlatcase,
   stringToKebabCase,
-  stringToSnakeCase
+  stringToLeetCase,
+  stringToMacroCase,
+  stringToPascalCase,
+  stringToSnakeCase,
+  stringToUppercase
 } from '../optionGenerator';
 
 describe('optionGenerator : ', () => {

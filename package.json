@@ -3,6 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "babel": {
+    "env": {
+      "test": {
+        "plugins": [
+          "@babel/plugin-transform-modules-commonjs"
+        ]
+      }
+    }
+  },
   "scripts": {
     "build": "next build",
     "dev": "node server/index.js",
@@ -21,6 +30,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
+    "@babel/plugin-transform-modules-commonjs": "^7.7.4",
     "babel-jest": "^24.9.0",
     "jest": "^24.9.0"
   }
