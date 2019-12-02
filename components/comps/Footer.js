@@ -35,7 +35,7 @@ const anchorStyle = css`
 const Footer = () => (
   <footer className={footerStyle}>
     <p>&#169; Ollie Crook 2019</p>
-    Twitter:
+    Twitter:{' '}
     <a className={anchorStyle} href="http://www.twitter.com/oilyquack">
       @oilyquack
     </a>
