@@ -1,10 +1,17 @@
-import { css } from 'emotion';
+import { css, injectGlobal } from 'emotion';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import theme from '../../theme';
 import Footer from '../comps/Footer';
+
+injectGlobal`
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+`;
 
 const pageLayoutStyle = css`
   align-items: center;
@@ -19,13 +26,6 @@ const PageLayout = ({ children, meta }) => (
       <title>{meta.title}</title>
       <meta name="description" content={meta.description} />
     </Head>
-    <style jsx global>{`
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-    `}</style>
     <div className={pageLayoutStyle}>
       {children}
       <Footer />
