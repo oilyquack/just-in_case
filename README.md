@@ -27,10 +27,11 @@ Every time the user gets an additional 10 points, a new kind of case gets added.
 
 The purpose of the game is to get a high winning streak, so there are no continues after a wrong answer.
 
-## TODO:
+## FEATURES TODO:
 
-- Store high scores locally
-- Subject game to unwilling participants to get feedback
 - Share on social media (challenge a friend)
-- Styling!
-- Silly keyframe animations for options
+- Explain wrong answers (e.g. "Oops, sorry. That was snake_case")
+
+## BUGS TO FIX:
+
+- Style sheet isn't ready server side
