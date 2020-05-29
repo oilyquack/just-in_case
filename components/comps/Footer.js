@@ -34,9 +34,25 @@ const anchorStyle = css`
 
 const Footer = () => (
   <footer className={footerStyle}>
-    <p>&#169; Ollie Crook 2019</p>
+    <p>
+      &copy;{' '}
+      <a
+        className={anchorStyle}
+        href="https://www.olliecrook.com"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Ollie Crook
+      </a>{' '}
+      {new Date().getFullYear()}
+    </p>
     Twitter:{' '}
-    <a className={anchorStyle} href="http://www.twitter.com/oilyquack">
+    <a
+      className={anchorStyle}
+      href="http://www.twitter.com/oilyquack"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
       @oilyquack
     </a>
   </footer>
