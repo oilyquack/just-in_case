@@ -29,7 +29,10 @@ const ranks = ['1st', '2nd', '3rd', '4th', '5th'];
 
 const ScoreBoard = ({ scores }) => (
   <div className={scoreBoardStyle}>
-    <Heading level="2" text={`HIGH SCORE${scores.length > 1 ? 'S' : null}`} />
+    <Heading
+      level="2"
+      text={scores.length > 1 ? 'HIGH SCORES' : 'HIGH SCORE'}
+    />
     <div className={scoresStyle}>
       {scores.map((score, index) => (
         <div className={scoreStyle} key={ranks[index]}>
@@ -44,9 +47,9 @@ const ScoreBoard = ({ scores }) => (
 export default ScoreBoard;
 
 ScoreBoard.defaultProps = {
-  scores: []
+  scores: [],
 };
 
 ScoreBoard.propTypes = {
-  scores: PropTypes.array
+  scores: PropTypes.array,
 };
