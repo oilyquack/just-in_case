@@ -14,12 +14,12 @@ import {
   stringToMacroCase,
   stringToPascalCase,
   stringToSnakeCase,
-  stringToUppercase
+  stringToUppercase,
 } from '../helpers/optionGenerator';
 
 const homeMeta = {
   title: 'Case Game',
-  description: 'Can you be the case master?'
+  description: 'Can you be the case master?',
 };
 
 class Index extends React.Component {
@@ -35,11 +35,12 @@ class Index extends React.Component {
     this.timer = null;
 
     this.state = {
+      possibleArgs: ['camel case', 'kebab case', 'snake case'],
       isGameOver: false,
       hasStarted: false,
+      questions: [stringToCamelCase, stringToKebabCase, stringToSnakeCase],
       score: 0,
-      startTimer: false,
-      timeLeft: 3
+      timeLeft: 3,
     };
   }
 
@@ -48,7 +49,7 @@ class Index extends React.Component {
 
     if (highScores) {
       this.setState({
-        scores: highScores
+        scores: highScores,
       });
     }
   }
@@ -66,7 +67,9 @@ class Index extends React.Component {
     this.setState({
       hasStarted: true,
       isGameOver: false,
-      score: 0
+      possibleArgs: ['camel case', 'kebab case', 'snake case'],
+      questions: [stringToCamelCase, stringToKebabCase, stringToSnakeCase],
+      score: 0,
     });
     this.createQuestion();
   }
@@ -79,43 +82,15 @@ class Index extends React.Component {
    * @memberof Index
    */
   createQuestion() {
-    const { score } = this.state;
+    const { possibleArgs, questions } = this.state;
     clearInterval(this.timer);
 
-    const questions = [stringToCamelCase, stringToKebabCase, stringToSnakeCase];
-
-    const argument = ['camel case', 'kebab case', 'snake case'];
-    if (score >= 5 && !argument.includes('pascal case')) {
-      argument.push('pascal case');
-      questions.push(stringToPascalCase);
-    }
-    if (score >= 10 && !argument.includes('flat case')) {
-      argument.push('flat case');
-      questions.push(stringToFlatcase);
-    }
-    if (score >= 15 && !argument.includes('upper case')) {
-      argument.push('upper case');
-      questions.push(stringToUppercase);
-    }
-    if (score >= 20 && !argument.includes('cobol case')) {
-      argument.push('cobol case');
-      questions.push(stringToCobolCase);
-    }
-    if (score >= 25 && !argument.includes('macro case')) {
-      argument.push('macro case');
-      questions.push(stringToMacroCase);
-    }
-    if (score >= 30 && !argument.includes('1337 case')) {
-      argument.push('1337 case');
-      questions.push(stringToLeetCase);
-    }
-
     const questionNum = Math.floor(Math.random() * questions.length);
-    const argumentNum = Math.floor(Math.random() * argument.length);
+    const possibleArgsNum = Math.floor(Math.random() * possibleArgs.length);
 
     this.setState({
-      question: questions[questionNum](argument[argumentNum]),
-      timeLeft: 3
+      question: questions[questionNum](possibleArgs[possibleArgsNum]),
+      timeLeft: 3,
     });
 
     this.startTimer();
@@ -143,7 +118,7 @@ class Index extends React.Component {
    */
   countDown() {
     this.setState({
-      timeLeft: this.state.timeLeft - 1
+      timeLeft: this.state.timeLeft - 1,
     });
   }
 
@@ -163,7 +138,7 @@ class Index extends React.Component {
         isGameOver: true,
         score: 0,
         startTimer: false,
-        timeLeft: 3
+        timeLeft: 3,
       });
     }
   }
@@ -173,16 +148,56 @@ class Index extends React.Component {
    * If the user is correct, increment score and repeat.
    * If the user is incorrect, set game over.
    *
-   * @param {*} question Bool used to determine if the answer is correct
+   * @param {*} isCorrect Bool used to determine if the answer is correct
    * @memberof Index
    */
-  validateAnswer(question) {
-    const { score } = this.state;
+  validateAnswer(isCorrect) {
+    const { possibleArgs, questions, score } = this.state;
     clearInterval(this.timer);
-    if (question) {
-      this.setState({
-        score: score + 1
-      });
+    if (isCorrect) {
+      const newScore = score + 1;
+      if (newScore >= 5 && possibleArgs.indexOf('pascal case') === -1) {
+        this.setState({
+          possibleArgs: [...possibleArgs, 'pascal case'],
+          questions: [...questions, stringToPascalCase],
+          score: newScore,
+        });
+      } else if (newScore >= 10 && possibleArgs.includes('flat case') === -1) {
+        this.setState({
+          possibleArgs: [...possibleArgs, 'flat case'],
+          questions: [...questions, stringToFlatcase],
+          score: newScore,
+        });
+      } else if (newScore >= 15 && possibleArgs.includes('upper case') === -1) {
+        this.setState({
+          possibleArgs: [...possibleArgs, 'upper case'],
+          questions: [...questions, stringToUppercase],
+          score: newScore,
+        });
+      } else if (newScore >= 20 && possibleArgs.includes('cobol case') === -1) {
+        this.setState({
+          possibleArgs: [...possibleArgs, 'cobol case'],
+          questions: [...questions, stringToCobolCase],
+          score: newScore,
+        });
+      } else if (newScore >= 25 && possibleArgs.includes('macro case') === -1) {
+        this.setState({
+          possibleArgs: [...possibleArgs, 'macro case'],
+          questions: [...questions, stringToMacroCase],
+          score: newScore,
+        });
+      } else if (newScore >= 30 && possibleArgs.includes('1337 case') === -1) {
+        this.setState({
+          possibleArgs: [...possibleArgs, '1337 case'],
+          questions: [...questions, stringToLeetCase],
+          score: newScore,
+        });
+      } else {
+        this.setState({
+          score: newScore,
+        });
+      }
+
       this.createQuestion();
     } else {
       // Store scores locally for scoreboard
@@ -201,7 +216,7 @@ class Index extends React.Component {
       this.setState({
         hasStarted: false,
         isGameOver: true,
-        scores: newHighScores
+        scores: newHighScores,
       });
     }
   }
@@ -213,7 +228,7 @@ class Index extends React.Component {
       question,
       score,
       scores,
-      timeLeft
+      timeLeft,
     } = this.state;
 
     return (
