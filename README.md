@@ -31,7 +31,3 @@ The purpose of the game is to get a high winning streak, so there are no continu
 
 - Share on social media (challenge a friend)
 - Explain wrong answers (e.g. "Oops, sorry. That was snake_case")
-
-## BUGS TO FIX:
-
-- Style sheet isn't ready server side
