@@ -18,7 +18,7 @@ import {
 } from '../helpers/optionGenerator';
 
 const homeMeta = {
-  title: 'Case Game',
+  title: 'just-in_case',
   description: 'Can you be the case master?',
 };
 
