@@ -156,37 +156,37 @@ class Index extends React.Component {
     clearInterval(this.timer);
     if (isCorrect) {
       const newScore = score + 1;
-      if (newScore >= 5 && possibleArgs.indexOf('pascal case') === -1) {
+      if (newScore >= 10 && possibleArgs.indexOf('pascal case') === -1) {
         this.setState({
           possibleArgs: [...possibleArgs, 'pascal case'],
           questions: [...questions, stringToPascalCase],
           score: newScore,
         });
-      } else if (newScore >= 10 && possibleArgs.includes('flat case') === -1) {
+      } else if (newScore >= 20 && possibleArgs.includes('flat case') === -1) {
         this.setState({
           possibleArgs: [...possibleArgs, 'flat case'],
           questions: [...questions, stringToFlatcase],
           score: newScore,
         });
-      } else if (newScore >= 15 && possibleArgs.includes('upper case') === -1) {
+      } else if (newScore >= 30 && possibleArgs.includes('upper case') === -1) {
         this.setState({
           possibleArgs: [...possibleArgs, 'upper case'],
           questions: [...questions, stringToUppercase],
           score: newScore,
         });
-      } else if (newScore >= 20 && possibleArgs.includes('cobol case') === -1) {
+      } else if (newScore >= 40 && possibleArgs.includes('cobol case') === -1) {
         this.setState({
           possibleArgs: [...possibleArgs, 'cobol case'],
           questions: [...questions, stringToCobolCase],
           score: newScore,
         });
-      } else if (newScore >= 25 && possibleArgs.includes('macro case') === -1) {
+      } else if (newScore >= 50 && possibleArgs.includes('macro case') === -1) {
         this.setState({
           possibleArgs: [...possibleArgs, 'macro case'],
           questions: [...questions, stringToMacroCase],
           score: newScore,
         });
-      } else if (newScore >= 30 && possibleArgs.includes('1337 case') === -1) {
+      } else if (newScore >= 60 && possibleArgs.includes('1337 case') === -1) {
         this.setState({
           possibleArgs: [...possibleArgs, '1337 case'],
           questions: [...questions, stringToLeetCase],
