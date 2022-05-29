@@ -49,7 +49,7 @@ const Home = () => {
   }, [countdown]);
 
   useEffect(() => {
-    return () => console.log('clear') || clearInterval(intervalId.current);
+    return () => clearInterval(intervalId.current);
   }, []);
 
   const resetGameStateToDefault = () => {
