@@ -19,8 +19,8 @@
   },
   "scripts": {
     "build": "next build",
-    "dev": "node server/index.js",
-    "start": "node server/index.js",
+    "dev": "next",
+    "start": "next start",
     "test": "jest"
   },
   "license": "MIT",
