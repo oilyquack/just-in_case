@@ -136,27 +136,27 @@ const Home = () => {
     clearInterval(intervalId.current);
     if (isCorrect) {
       const newScore = score + 1;
-      if (newScore >= 10 && !possibleArgs.includes('pascal case')) {
+      if (newScore >= 1 && !possibleArgs.includes('pascal case')) {
         setPossibleArgs((prevValue) => [...prevValue, 'pascal case']);
         setQuestions((prevValue) => [...prevValue, stringToPascalCase]);
         setScore(newScore);
-      } else if (newScore >= 20 && !possibleArgs.includes('flat case')) {
+      } else if (newScore >= 2 && !possibleArgs.includes('flat case')) {
         setPossibleArgs((prevValue) => [...prevValue, 'flat case']);
         setQuestions((prevValue) => [...prevValue, stringToFlatcase]);
         setScore(newScore);
-      } else if (newScore >= 30 && !possibleArgs.includes('upper case')) {
+      } else if (newScore >= 3 && !possibleArgs.includes('upper case')) {
         setPossibleArgs((prevValue) => [...prevValue, 'upper case']);
         setQuestions((prevValue) => [...prevValue, stringToUppercase]);
         setScore(newScore);
-      } else if (newScore >= 40 && !possibleArgs.includes('cobol case')) {
+      } else if (newScore >= 4 && !possibleArgs.includes('cobol case')) {
         setPossibleArgs((prevValue) => [...prevValue, 'cobol case']);
         setQuestions((prevValue) => [...prevValue, stringToCobolCase]);
         setScore(newScore);
-      } else if (newScore >= 50 && !possibleArgs.includes('macro case')) {
+      } else if (newScore >= 5 && !possibleArgs.includes('macro case')) {
         setPossibleArgs((prevValue) => [...prevValue, 'macro case']);
         setQuestions((prevValue) => [...prevValue, stringToMacroCase]);
         setScore(newScore);
-      } else if (newScore >= 60 && !possibleArgs.includes('1337 case')) {
+      } else if (newScore >= 6 && !possibleArgs.includes('1337 case')) {
         setPossibleArgs((prevValue) => [...prevValue, '1337 case']);
         setQuestions((prevValue) => [...prevValue, stringToLeetCase]);
         setScore(newScore);
