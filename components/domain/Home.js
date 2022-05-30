@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import React, {useEffect, useRef, useState} from 'react';
 
 import {
@@ -13,7 +14,13 @@ import {
 } from '../../helpers/optionGenerator';
 import GameOver from '../comps/GameOver';
 import PlayBoard from '../comps/PlayBoard';
-import ScoreBoard from '../comps/ScoreBoard';
+
+const DynamicScoreBoardWithNoSSR = dynamic(
+  () => import('../comps/ScoreBoard'),
+  {
+    ssr: false,
+  }
+);
 
 const DEFAULT_GAME_ARGS = ['camel case', 'kebab case', 'snake case'];
 const DEFAULT_GAME_QUESTIONS = [
@@ -184,7 +191,7 @@ const Home = () => {
   if (gameStatus === 'idle') {
     return (
       <>
-        <ScoreBoard scores={highScores} />
+        <DynamicScoreBoardWithNoSSR scores={highScores} />
         <button type="button" onClick={startGame}>
           Let’s Play
         </button>
