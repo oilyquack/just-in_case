@@ -2,7 +2,6 @@
   "name": "just-in_case",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "babel": {
     "plugins": [
       [
@@ -25,8 +24,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "emotion": "^10.0.14",
-    "emotion-server": "^10.0.27",
+    "@emotion/css": "^11.9.0",
+    "@emotion/server": "^11.4.0",
+    "emotion": "^11.0.0",
     "next": "^12.1.6",
     "prop-types": "^15.7.2",
     "react": "^18.1.0",

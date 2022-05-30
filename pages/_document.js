@@ -1,5 +1,5 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document';
-import { extractCritical } from 'emotion-server';
+import { extractCritical } from '@emotion/server';
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {

@@ -1,4 +1,4 @@
-import { css, injectGlobal } from 'emotion';
+import { css, injectGlobal } from '@emotion/css';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import React from 'react';

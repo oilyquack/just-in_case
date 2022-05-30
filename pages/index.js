@@ -1,4 +1,4 @@
-import {css, injectGlobal} from 'emotion';
+import {css, injectGlobal} from '@emotion/css';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import React from 'react';

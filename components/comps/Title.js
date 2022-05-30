@@ -1,4 +1,4 @@
-import { css } from 'emotion';
+import { css } from '@emotion/css';
 import React from 'react';
 
 import Heading from './core/Heading';

@@ -1,4 +1,4 @@
-import { css, keyframes } from 'emotion';
+import { css, keyframes } from '@emotion/css';
 import PropTypes from 'prop-types';
 import React from 'react';
 
