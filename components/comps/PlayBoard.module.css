@@ -1,0 +1,57 @@
+@keyframes tremble {
+    0% {
+        transform: translate(0.1px, 0.1px) rotate(0deg);
+    }
+    10% {
+        transform: translate(-0.1px, -0.2px) rotate(-1deg);
+    }
+    20% {
+        transform: translate(-0.3px, 0.0px) rotate(1deg);
+    }
+    30% {
+        transform: translate(0.3px, 0.2px) rotate(0deg);
+    }
+    40% {
+        transform: translate(0.1px, -0.1px) rotate(1deg);
+    }
+    50% {
+        transform: translate(-0.1px, 0.2px) rotate(-1deg);
+    }
+    60% {
+        transform: translate(-0.3px, 0.1px) rotate(0deg); 
+    }
+    70% {
+        transform: translate(0.3px, 0.1px) rotate(-1deg);
+    }
+    80% {
+        transform: translate(-0.1px, -0.1px) rotate(1deg);
+    }
+    90% {
+        transform: translate(0.1px, 0.2px) rotate(0deg);
+    }
+    100% {
+        transform: translate(0.1px, -0.2px) rotate(-1deg); 
+    }
+}
+
+.playBoard_question {
+    animation: tremble 0.5s infinite;
+    color: var(--black);
+    cursor: default;
+    font-family: var(--font-secondary);
+    font-size: 40px;
+    margin-bottom: 8px;
+    padding: 4px;
+}
+
+.playBoard_timer {
+    font-family: var(--font-primary);
+    margin-bottom: 8px;
+    padding: 4px;
+}
+
+.playBoard_score {
+    font-family: var(--font-primary);
+    margin-bottom: 8px;
+    padding: 4px;
+}
