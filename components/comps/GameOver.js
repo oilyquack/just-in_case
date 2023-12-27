@@ -13,7 +13,7 @@ const gameOverStyle = css`
 `;
 
 const GameOver = ({ score }) => (
-  <div>
+  <div className={gameOverStyle}>
     <h2>GAME OVER</h2>
     <p>Score: {score}</p>
   </div>
