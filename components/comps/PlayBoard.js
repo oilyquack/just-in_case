@@ -42,6 +42,7 @@ const trembleAnimation = keyframes`
 
 const questionStyle = css`
   animation: ${trembleAnimation} 0.5s infinite;
+  color: ${theme.colors.black};
   cursor: default;
   font-family: ${theme.fonts.secondary};
   font-size: ${theme.spacing.xxl}px;
