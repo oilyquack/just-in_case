@@ -31,12 +31,12 @@ const DEFAULT_GAME_QUESTIONS = [
 const DEFAULT_TIME_PER_ROUND = 3; // seconds
 
 const Home = () => {
-  let highScores;
+  let highScores = [];
 
   const isReadyToShowHighScores = typeof window !== 'undefined';
 
   if (isReadyToShowHighScores) {
-    highScores = JSON.parse(localStorage.getItem('highScore')) ?? null;
+    highScores = JSON.parse(localStorage.getItem('highScore')) ?? [];
   }
 
   const intervalId = useRef();
@@ -210,7 +210,7 @@ const Home = () => {
     return (
       <>
         <GameOver score={score} />
-        <ScoreBoard scores={highScores} />
+        <DynamicScoreBoardWithNoSSR scores={highScores} />
         <button type="button" onClick={startGame}>
           Let’s Play
         </button>
