@@ -1,0 +1,6 @@
+
+.primary {
+  color: var(--primary);
+  font-family: var(--font-primary);
+  text-align: center;
+}

@@ -1,0 +1,11 @@
+@import './breakpoints.css';
+@import './colors.css';
+@import './fonts.css';
+@import './spacing.css';
+@import './typography.css';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}

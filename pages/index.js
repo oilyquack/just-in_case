@@ -1,18 +1,10 @@
-import {css, injectGlobal} from '@emotion/css';
+import {css} from '@emotion/css';
 import Head from 'next/head';
 import React from 'react';
 
 import Footer from '../components/comps/Footer';
 import Title from '../components/comps/Title';
 import Home from '../components/domain/Home';
-
-injectGlobal`
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-`;
 
 const pageLayoutStyle = css`
   align-items: center;

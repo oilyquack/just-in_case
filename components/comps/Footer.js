@@ -1,44 +1,14 @@
-import { css } from '@emotion/css';
 import React from 'react';
 
-import theme from '../../theme/index';
-
-const footerStyle = css`
-  background: ${theme.colors.neutral};
-  bottom: 0;
-  color: ${theme.colors.secondary};
-  font-family: ${theme.fonts.primary};
-  padding: 5px 0 10px 0;
-  position: fixed;
-  text-align: center;
-  width: 100vw;
-`;
-
-const anchorStyle = css`
-  a:active {
-    color: ${theme.colors.secondaryActive};
-    text-decoration: underline;
-  }
-  &:link {
-    color: ${theme.colors.secondary};
-    text-decoration: none;
-  }
-  &:visited {
-    color: ${theme.colors.secondary};
-    text-decoration: none;
-  }
-  &:hover {
-    text-decoration: underline;
-  }
-`;
+import styles from './Footer.module.css'
 
 const Footer = () => (
-  <footer className={footerStyle}>
+  <footer className={styles.footer}>
     <p>
       &copy;{' '}
       <a
-        className={anchorStyle}
-        href="https://www.olliecrook.com"
+        className={styles['footer-anchor']}
+        href="https://www.olliecrook.dev"
         rel="noopener noreferrer"
         target="_blank"
       >
@@ -48,7 +18,7 @@ const Footer = () => (
     </p>
     Twitter:{' '}
     <a
-      className={anchorStyle}
+      className={styles['footer-anchor']}
       href="http://www.twitter.com/oilyquack"
       rel="noopener noreferrer"
       target="_blank"

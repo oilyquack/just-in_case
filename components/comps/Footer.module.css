@@ -1,0 +1,29 @@
+.footer {
+    background: var(--neutral);
+    bottom: 0;
+    color: var(--secondary);
+    font-family: var(--font-primary);
+    padding: 5px 0 10px 0;
+    position: fixed;
+    text-align: center;
+    width: 100vw;
+}
+
+.footer-anchor {
+    color: var(--secondary);
+    text-decoration: none;
+}
+
+.footer-anchor :active {
+    color: var(--secondaryActive);
+    text-decoration: underline;
+}
+
+.footer-anchor :visited {
+    color: var(--secondary);
+    text-decoration: none;
+}
+
+.footer-anchor :hover {
+    text-decoration: underline;
+}
