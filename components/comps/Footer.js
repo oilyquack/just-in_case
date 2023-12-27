@@ -7,7 +7,6 @@ const Footer = () => (
     <p>
       &copy;{' '}
       <a
-        className={styles['footer-anchor']}
         href="https://www.olliecrook.dev"
         rel="noopener noreferrer"
         target="_blank"
@@ -18,7 +17,6 @@ const Footer = () => (
     </p>
     Twitter:{' '}
     <a
-      className={styles['footer-anchor']}
       href="http://www.twitter.com/oilyquack"
       rel="noopener noreferrer"
       target="_blank"

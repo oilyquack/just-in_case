@@ -8,22 +8,3 @@
     text-align: center;
     width: 100vw;
 }
-
-.footer-anchor {
-    color: var(--secondary);
-    text-decoration: none;
-}
-
-.footer-anchor :active {
-    color: var(--secondaryActive);
-    text-decoration: underline;
-}
-
-.footer-anchor :visited {
-    color: var(--secondary);
-    text-decoration: none;
-}
-
-.footer-anchor :hover {
-    text-decoration: underline;
-}

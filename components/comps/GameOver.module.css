@@ -1,0 +1,7 @@
+.gameOver {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-primary);
+    margin: 20px 0 20px 0;
+}
