@@ -1,24 +1,9 @@
-import { css, injectGlobal } from '@emotion/css';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import Footer from '../comps/Footer';
-
-injectGlobal`
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-`;
-
-const pageLayoutStyle = css`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-`;
+import styles from './PageLayout.module.css'
 
 const PageLayout = ({ children, meta }) => (
   <>
@@ -27,7 +12,7 @@ const PageLayout = ({ children, meta }) => (
       <link rel="shortcut icon" href="/static/favicon.ico" />
       <meta name="description" content={meta.description} />
     </Head>
-    <div className={pageLayoutStyle}>
+    <div className={styles.pageLayout}>
       {children}
       <Footer />
     </div>
